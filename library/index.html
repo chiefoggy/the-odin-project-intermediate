@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Library</title>
+</head>
+<body>
+    <div class="header">
+        My Library
+    </div>
+    <form class="form" id="addBook">
+        <input type="text" id="title" placeholder="Book Name" required>
+        <input type="text" id="author" placeholder="Author Name" required>
+        <input type="text" id="genre" placeholder="Genre" required>
+        <input type="number" id="pages" placeholder="Number of pages" required>
+        <input type="text" id="description" placeholder="Description" required>
+        <label>
+            <input type="radio" name="status" value="Read">Read
+        </label>
+        <label>
+            <input type="radio" name="status" value="Unread">Unread
+        </label>
+        <button type="submit">Add Book</button>
+    </form>
+
+    <div class="library-container" id="libraryContainer">
+
+    </div>
+    <script src="script.js"></script>
+</body>
+<footer class="footer">
+    Created with <span style="color:#e63946;">❤</span> in December 2025.
+</footer>
+</html>
