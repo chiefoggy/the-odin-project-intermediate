@@ -1,75 +1,86 @@
 import { useState } from "react";
 
-const PracticalExperience = () => {
+const PracticalExperience = ( { onAdd } ) => {
+    const [form, setForm] = useState({
+        company: '',
+        position: '',
+        responsibilities: '',
+        startDate: '',
+        endDate: ''
+    });
 
-    const [company, setCompany] = useState('');
-    const [position, setPosition] = useState('');
-    const [responsibilities, setResponsibilities] = useState('');
-    const [startDate, setStartDate] = useState(''); 
-    const [endDate, setEndDate] = useState(''); 
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setForm({...form, [name]: value});
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        onAdd({...form, id: crypto.randomUUID()});
+
+        setForm({
+        company: '',
+        position: '',
+        responsibilities: '',
+        startDate: '',
+        endDate: ''
+        });
+    }
 
     return (
         <div>
             <h2>Practical Experience</h2>
-            <form>
-                <div>
-                    <input 
-                        type='text'
-                        placeholder="Company Name"
-                        value={company}
-                        onChange={(e) => setCompany(e.target.value)}
-                    />
-                </div>
+            <div>
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <input 
+                            type='text'
+                            name='company'
+                            placeholder="Company Name"
+                            value={form.company}
+                            onChange={handleChange}
+                        />
 
-                <div>
-                    <input 
-                        type='text'
-                        placeholder="Position"
-                        value={position}
-                        onChange={(e) => setPosition(e.target.value)}
-                    />
-                </div>
+                        <input 
+                            type='text'
+                            name='position'
+                            placeholder="Position"
+                            value={form.position}
+                            onChange={handleChange}
+                        />
 
-                <div>
-                    <input 
-                        type='text'
-                        placeholder="Responsibilities"
-                        value={responsibilities}
-                        onChange={(e) => setResponsibilities(e.target.value)}
-                    />
-                </div>
+                        <input 
+                            type='text'
+                            name='responsibilities'
+                            placeholder="Responsibilities"
+                            value={form.responsibilities}
+                            onChange={handleChange}
+                        />
 
-                <div>
-                    <label>Start date: </label>
-                    <input 
-                        type='date'
-                        placeholder="Start Date"
-                        value={startDate}
-                        onChange={(e) => setStartDate(e.target.value)}
-                    />
-                </div>
+                        <label>Start Date</label>
+                        <input 
+                            type='date'
+                            name='startDate'
+                            value={form.startDate}
+                            onChange={handleChange}
+                        />
 
-                <div>
-                    <label>End date: </label>
-                    <input 
-                        type='date'
-                        placeholder="End Date"
-                        value={endDate}
-                        onChange={(e) => setEndDate(e.target.value)}
-                    />
-                </div>      
-            </form>
+                        <label>End Date</label>
+                        <input 
+                            type='date'
+                            name='endDate'
+                            value={form.endDate}
+                            onChange={handleChange}
+                        />
+                    </div>
 
-            <div className="display-practical-experience">
-                <h1>
-                    <strong>{company}</strong>- {position} <br />
-                </h1>
-                <p>Period: {startDate} - {endDate}</p>
-                <p>Responsibilities: {responsibilities}</p>
+                    <button type="submit">Add Experience</button>  
+                </form>
             </div>
-
         </div>
     )
-}
+};
+
+
 
 export default PracticalExperience;

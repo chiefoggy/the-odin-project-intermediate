@@ -1,52 +1,57 @@
 import { useState } from "react";
 
-const Education = () => {
-    const [schoolName, setSchoolName] = useState('');
-    const [titleOfStudy, setTitleOfStudy] = useState('');
-    const [dateOfStudy, setDateOfStudy] = useState('');
+const Education = ({onAdd}) => {
+    const [form, setForm] = useState({
+        school: '',
+        study: '', 
+        date: ''
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setForm({...form, [name]: value})
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        onAdd({...form, id: crypto.randomUUID()});
+        setForm({ school: '', study: '', date: '' });
+    };
 
     return (
         <div>
-            <form>
-                <div>
-                    <input 
-                        type='text'
-                        placeholder="School Name"
-                        value={schoolName}
-                        onChange={(e) => setSchoolName(e.target.value)}
-                    />
-                </div>
+            <h2>Education</h2>
+            <form onSubmit={handleSubmit}>
+                <input 
+                    type='text'
+                    name='school'
+                    placeholder="School name"
+                    value={form.school}
+                    onChange={handleChange}
+                />
 
-                <div>
-                    <input 
-                        type='text'
-                        placeholder="Title Of Study"
-                        value={titleOfStudy}
-                        onChange={(e) => setTitleOfStudy(e.target.value)}
-                    />
-                </div>
+                <input 
+                    type='text'
+                    name='study'
+                    placeholder="Course of study"
+                    value={form.study}
+                    onChange={handleChange}
+                />
 
-                <div>
-                    <input 
-                        type='text'
-                        placeholder="Date Of Study"
-                        value={dateOfStudy}
-                        onChange={(e) => setDateOfStudy(e.target.value)}
-                    />
-                </div>
+                <input 
+                    type='text'
+                    name='date'
+                    placeholder="Date of Study"
+                    value={form.date}
+                    onChange={handleChange}
+                />
+
+                <button type="submit">Add</button>
+
             </form>
-
-            <h2>School name: 
-                <strong> {schoolName}</strong>
-            </h2>
-            <p>Title Of Study:
-                <strong> {titleOfStudy}</strong>
-            </p>
-            <p>Date Of Study: 
-                <strong> {dateOfStudy}</strong>
-            </p>
         </div>
+
     )
-}
+};
 
 export default Education;

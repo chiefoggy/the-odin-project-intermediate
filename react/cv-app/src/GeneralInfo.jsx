@@ -1,47 +1,47 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-const GeneralInfo = () => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [phoneNo, setPhoneNo] = useState('');
-
+const GeneralInfo = ({ data, onChange }) => {
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        onChange({...data, [name]:value})
+    };
     return (
         <div>
             <h2>General Information</h2>
             <form>
                 <div>
+                    <label>Full Name: </label>
                     <input 
                         type='text'
+                        name="name"
                         placeholder="Name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
+                        value={data.name}
+                        onChange={handleChange}
                     />
                 </div>
 
                 <div>
+                    <label>Email: </label>
                     <input 
                         type='text'
+                        name="email"
                         placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        value={data.email}
+                        onChange={handleChange}
                     />
                 </div>
 
                 <div>
+                    <label>Phone Number: </label>
                     <input 
                         type='text'
+                        name="phoneNo"
                         placeholder="Phone Number"
-                        value={phoneNo}
-                        onChange={(e) => setPhoneNo(e.target.value)}
+                        value={data.phoneNo}
+                        onChange={handleChange}
                     />
                 </div>
             </form>
-
-            <div className="display-general-info">
-                <h1><strong>{name}</strong></h1>
-                <p>Email Address: {email}</p>
-                <p>Phone Number: {phoneNo}</p>
-            </div>
         </div>
     )
 }
