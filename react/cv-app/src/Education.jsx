@@ -19,38 +19,52 @@ const Education = ({onAdd}) => {
     };
 
     return (
-        <div>
-            <h2>Education</h2>
-            <form onSubmit={handleSubmit}>
-                <input 
-                    type='text'
-                    name='school'
-                    placeholder="School name"
-                    value={form.school}
-                    onChange={handleChange}
-                />
+        <div className="card">
+            <h2 className="card-title">Education</h2>
 
-                <input 
-                    type='text'
-                    name='study'
-                    placeholder="Course of study"
-                    value={form.study}
-                    onChange={handleChange}
-                />
+            <form onSubmit={handleSubmit} className="card-grid">
+                <div className="form-group">
+                    <input 
+                        type='text'
+                        name='school'
+                        placeholder="School Name"
+                        value={form.school}
+                        onChange={handleChange}
+                    />
+                </div>
 
-                <input 
-                    type='text'
-                    name='date'
-                    placeholder="Date of Study"
-                    value={form.date}
-                    onChange={handleChange}
-                />
+                <div className="form-group">
+                    <input 
+                        type='text'
+                        name='study'
+                        placeholder="Course of Study"
+                        value={form.study}
+                        onChange={handleChange}
+                    />
+                </div>
 
-                <button type="submit">Add</button>
+                <div className="form-group">
+                    <label>Start Date: </label>
+                    <input 
+                        type='date'
+                        name='startDate'
+                        value={form.startDate}
+                        onChange={handleChange}
+                    />
+                </div>
 
+                <div className="form-group">
+                    <label>End Date: </label>
+                    <input 
+                        type='date'
+                        name='endDate'
+                        value={form.endDate}
+                        onChange={handleChange}
+                    />
+                </div>
+                <button type="submit full-width">Add</button>
             </form>
         </div>
-
     )
 };
 

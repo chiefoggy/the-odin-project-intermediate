@@ -6,22 +6,20 @@ const GeneralInfo = ({ data, onChange }) => {
         onChange({...data, [name]:value})
     };
     return (
-        <div>
-            <h2>General Information</h2>
-            <form>
-                <div>
-                    <label>Full Name: </label>
+        <div className="card">
+            <h2 className="card-title">General Information</h2>
+            <form className="card-grid">
+                <div className="form-group">
                     <input 
                         type='text'
                         name="name"
-                        placeholder="Name"
+                        placeholder="Full Name"
                         value={data.name}
                         onChange={handleChange}
                     />
                 </div>
 
-                <div>
-                    <label>Email: </label>
+                <div className="form-group">
                     <input 
                         type='text'
                         name="email"
@@ -31,13 +29,22 @@ const GeneralInfo = ({ data, onChange }) => {
                     />
                 </div>
 
-                <div>
-                    <label>Phone Number: </label>
+                <div className="form-group">
                     <input 
                         type='text'
                         name="phoneNo"
                         placeholder="Phone Number"
                         value={data.phoneNo}
+                        onChange={handleChange}
+                    />
+                </div>
+
+                <div className="form-group">
+                    <input 
+                        type='text'
+                        name="bio"
+                        placeholder="Bio"
+                        value={data.bio}
                         onChange={handleChange}
                     />
                 </div>

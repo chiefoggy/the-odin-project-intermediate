@@ -32,6 +32,7 @@ function App() {
       <div className="resume-header">
         <h1>{generalInfo.name}</h1>
         <h2>{generalInfo.email} | {generalInfo.phoneNo}</h2>
+        <p>{generalInfo.bio}</p>
       </div>
 
       <div className="education-display">
@@ -39,8 +40,8 @@ function App() {
         {educationList.map((edu) => (
           <div key={edu.id} className="education-item">
             <h3>{edu.school}</h3>
-            <p>{edu.date}</p>
-            <p>{edu.study}</p>
+            <p>{edu.startDate} - {edu.endDate}</p>
+            <h3>{edu.study}</h3>
           </div>
         ))}
       </div>
