@@ -62,7 +62,7 @@ const Education = ({onAdd}) => {
                         onChange={handleChange}
                     />
                 </div>
-                <button type="submit full-width">Add</button>
+                <button type="submit" className="submit-btn full-width">Add</button>
             </form>
         </div>
     )

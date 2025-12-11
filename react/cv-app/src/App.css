@@ -1,18 +1,100 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0; /* Removed padding to allow full width nav */
   text-align: center;
 }
 
-.card{
-  min-width: 50%;
-  padding: 1rem;
-  margin: 3rem;
-  border-radius: 0.9rem;
-  box-shadow: 0 0.3rem 1rem rgba(0,0,0,0.25);
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #333;
+  color: white;
+  margin-bottom: 2rem;
+  border-radius: 0 0 10px 10px;
 }
 
+.toggle-btn {
+  background-color: #646cff;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.toggle-btn:hover {
+  background-color: #535bf2;
+}
+
+/* Edit Mode Styling */
+.edit-mode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 600px; /* Limits width of forms so they look good */
+  padding: 2rem;
+  border-radius: 0.9rem;
+  box-shadow: 0 0.3rem 1rem rgba(0,0,0,0.25);
+  background-color: #2a2a2a; /* Assuming dark mode based on React defaults */
+}
+
+/* Preview Mode Styling */
+.preview-mode {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 3rem;
+}
+
+.resume-paper {
+  background-color: white;
+  color: black;
+  width: 210mm; /* A4 Width */
+  min-height: 297mm; /* A4 Height */
+  padding: 2rem;
+  text-align: left;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.resume-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.contact-info {
+  margin: 0.5rem 0;
+  font-weight: bold;
+  color: #555;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.study-title, .position-title {
+  margin: 0.2rem 0;
+  font-style: italic;
+}
+
+hr {
+  margin: 1.5rem 0;
+  border: 1px solid #eee;
+}
+
+/* Existing Form Styles */
 .card-title {
   text-align: center;
   font-size: 2rem;
@@ -30,15 +112,24 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  text-align: left;
+}
+
+.form-group label {
+  color: white;
 }
 
 .form-group input {
-  padding: 1rem;
+  padding: 0.8rem;
   border-radius: 0.6rem;
   border: none;
   font-size: 1rem;
 }
 
-.full-width{
-  grid-column: 1 / -1; /* spans the whole row */
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.submit-btn {
+  margin-top: 1rem;
 }
