@@ -1,0 +1,26 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+#game-container{
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    margin: 20px;
+}
+
+.cell{
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.cell:hover{
+    background-color: #e0e0e0;
+}
